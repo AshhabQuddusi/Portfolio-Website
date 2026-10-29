@@ -1,7 +1,7 @@
 :root{--bg:#1B1E4A;--text:#AFAEA2;--muted:rgba(175,174,162,.75);--accent:#D21319;--border:rgba(175,174,162,.12)}
 body.light{--bg:#AFAEA2;--text:#1B1E4A;--muted:rgba(27,30,74,.8);--border:rgba(27,30,74,.12)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scrollbar-color:var(--accent) var(--bg)}
+html{scroll-behavior:smooth;scrollbar-color:var(--accent) var(--bg)}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--accent);color:#fff}
 
@@ -70,9 +70,7 @@ body.light .hero-bg-grid{background-image:linear-gradient(rgba(27,30,74,.08) 1px
 @keyframes scrollLine{0%{left:-100%}100%{left:100%}}
 
 .marquee-strip{background:var(--accent);border-block:1px solid var(--accent);overflow:hidden;padding:.9rem 0;cursor:default}
-.marquee-inner{display:flex;width:max-content;animation:marquee 28s linear infinite}
-.marquee-strip:hover .marquee-inner{animation-play-state:paused}
-@keyframes marquee{to{transform:translateX(-50%)}}
+.marquee-inner{display:flex;width:max-content}
 .marquee-item{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.22em;white-space:nowrap;padding:0 1.8rem;color:#fff}
 body.light .marquee-item{color:var(--text)}
 .marquee-dot{color:#1B1E4A;padding:0 .4rem}
