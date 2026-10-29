@@ -58,34 +58,6 @@ nav.scrolled{background:rgba(27,30,74,.92);backdrop-filter:blur(12px);border-bot
 .hero-name-underline{width:0;height:2px;background:var(--accent);margin:0 auto;animation:underlineGrow .6s ease 1.6s forwards}
 @keyframes underlineGrow{to{width:60%}}
 
-/* ── PHOTO ANIMATIONS ── */
-
-/* Photo ring */
-
-}
-/* Photo itself */
-
-}
-/* Floating idle animation after load */
-
-50%{transform:translateY(-10px)}}
-/* Scan line sweep */
-
-}
-to{top:100%;opacity:0}}
-/* Corner brackets */
-
-
-
-
-
-}
-
-/* Glow */
-
-}
-50%{opacity:1;transform:translate(-50%,-52%) scale(1.06)}}
-
 /* Particles */
 .hero-particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--accent);opacity:0;animation:particleFloat linear infinite}
@@ -267,56 +239,6 @@ footer{border-top:1px solid var(--border);padding:1.6rem 3rem;display:flex;justi
 @keyframes slashIn{to{opacity:.7}}
 @keyframes slashOut{to{opacity:0}}
 
-
-  to{opacity:1;transform:scale(1) translateY(0)}
-}
-
-
-
-
-
-/* Trigger glitch at intervals */
-
-
-
-  10%{opacity:.55;transform:translate(6px,-3px);clip-path:inset(15% 0 55% 0)}
-  25%{opacity:.4;transform:translate(-4px,2px);clip-path:inset(40% 0 20% 0)}
-  40%{opacity:.55;transform:translate(5px,4px);clip-path:inset(70% 0 5% 0)}
-  55%{opacity:.3;transform:translate(-6px,-2px);clip-path:inset(5% 0 75% 0)}
-  70%{opacity:.5;transform:translate(3px,3px);clip-path:inset(55% 0 30% 0)}
-  85%{opacity:.2;transform:translate(0)}
-  100%{opacity:0}
-}
-
-  10%{opacity:.45;transform:translate(-6px,3px);clip-path:inset(60% 0 10% 0)}
-  25%{opacity:.55;transform:translate(4px,-2px);clip-path:inset(10% 0 65% 0)}
-  40%{opacity:.4;transform:translate(-5px,-4px);clip-path:inset(30% 0 45% 0)}
-  55%{opacity:.5;transform:translate(6px,2px);clip-path:inset(75% 0 5% 0)}
-  70%{opacity:.3;transform:translate(0)}
-  85%{opacity:.15}
-  100%{opacity:0}
-}
-
-/* Photo duotone effect in intro */
-
-/* Red channel tint overlay */
-
-/* Scan sweep line */
-
-
-  to{top:100%;opacity:0}
-}
-/* Corner frames */
-
-
-
-
-
-}
-
-/* Ring expand */
-
-}
 
 /* Name in intro */
 .intro-name{position:relative;z-index:5;text-align:center;line-height:.85}
@@ -610,3 +532,34 @@ body.light .intro-overlay-light{background:var(--bg)}
 .theme-toggle .icon-light{opacity:0;transform:scale(.6)}
 body.light .theme-toggle .icon-dark{opacity:0;transform:scale(.6)}
 body.light .theme-toggle .icon-light{opacity:1;transform:scale(1)}
+
+/* ════════════════════════════════════════════
+   MORE ACCENT RED  (color-only, no layout changes)
+════════════════════════════════════════════ */
+/* Marquee: full red band, white text, navy dots */
+.marquee-strip{background:var(--accent);border-top-color:var(--accent);border-bottom-color:var(--accent)}
+.marquee-item{color:#fff}
+.marquee-dot{color:#1B1E4A}
+
+/* First line of every big section headline in red (pure CSS, no HTML change) */
+.section-headline::first-line,
+.projects-headline::first-line{color:var(--accent)}
+
+/* Red hairlines: eyebrow rules, dividers, nav + footer edges */
+.eyebrow-line{background:var(--accent)}
+.insight,.exp-item{border-color:var(--accent)}
+nav.scrolled,body.light nav.scrolled{border-bottom-color:var(--accent)}
+footer{border-top-color:var(--accent)}
+
+/* Cards: permanent red edge */
+.project-card{border-top-color:var(--accent)}
+.skill-card,.cert-card{border-left-color:var(--accent)}
+.stat-card{box-shadow:inset 0 -3px 0 var(--accent)}
+
+/* Tags, filters, links: red outlines/underlines */
+.project-tag,.exp-tag,.filter-btn{border-color:var(--accent)}
+.cert-link,.cta-social{border-bottom-color:var(--accent)}
+
+/* Text selection + scrollbar */
+::selection{background:var(--accent);color:#fff}
+html{scrollbar-color:var(--accent) var(--bg)}
