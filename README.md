@@ -1,83 +1,44 @@
-Personal Portfolio Website
+# Ashhab Quddusi’s Portfolio
 
-A responsive, modern personal portfolio website built with HTML, CSS, and JavaScript. This project showcases my profile, skills, projects, resume, and contact information in a clean and professional design.
+My developer portfolio brings together six projects, work experience, technical skills, and certifications. It’s built with HTML, CSS, and JavaScript and hosted on Vercel.
 
-📌 Features
-Responsive design for desktop, tablet, and mobile devices
-Smooth scrolling navigation
-Interactive project cards
-Skills section
-About Me section
-Resume download button
-Contact form
-Social media links
-Animated elements using JavaScript
-🛠️ Technologies Used
-HTML5 – Structure of the website
-CSS3 – Styling and layout
-JavaScript – Interactivity and animations
+[Live portfolio](https://ashhabquddusi.vercel.app/) · [Selected work](https://ashhabquddusi.vercel.app/#projects) · [Certifications](https://ashhabquddusi.vercel.app/#certs) · [Résumé](Ashhab%20Quddusi.pdf)
 
-## 🌐 Live Demo
+[![Portfolio homepage with a retro computer illustration](profile-preview.png)](https://ashhabquddusi.vercel.app/)
 
-Visit the live portfolio website here: https://ashhabquddusi.vercel.app/
+## Explore the site
 
-- 🚀 Live Website: 
+- Open the illustrated CRT terminal and run `help`, `work`, `skills`, or `resume`.
+- Filter the project showcase by category and open any cover for a technical walkthrough. Each card includes a source link.
+- Browse skills by category, open the original credential links, or copy my email from the contact section.
+- The layout adapts to mobile and desktop. Light and dark appearance follows the device setting, and the interface uses the system accent when the browser exposes it.
 
-📂 Project Structure
-portfolio/
-│── index.html
-│── style.css
-│── script.js
-│── assets/
-│   ├── images/
-│   └── resume.pdf
-└── README.md
+## Run locally
 
-🚀 Getting Started
-1. Clone the Repository
-git clone https://github.com/AshhabQuddusi/Portfolio-Website
-2. Navigate to the Project Folder
-cd portfolio
-3. Open in Browser
+With Python 3 installed, run the following commands. The site needs no build step or application dependencies.
 
-Open index.html in your preferred browser.
+```sh
+git clone https://github.com/AshhabQuddusi/Portfolio-Website.git
+cd Portfolio-Website
+python -m http.server 8000
+```
 
-📸 Sections Included
-Home – Introduction and hero section
-About – Personal background and career goals
-Skills – Technical skills and tools
-Projects – Showcase of selected work
-Resume – Downloadable CV/Resume
-Contact – Form and social links
-🎨 Customization
+Open the local preview. [http://localhost:8000](http://localhost:8000)
 
-You can easily customise the portfolio by editing:
+## Source files
 
-index.html – Update content and sections
-style.css – Modify colours, fonts, and layout
-script.js – Add animations and functionality
-assets/images/ – Replace images
-assets/resume.pdf – Upload your latest resume
+| File | What it contains |
+| --- | --- |
+| [index.html](index.html) | Page content, project case studies, credentials, and links |
+| [style.css](style.css) and [script.js](script.js) | Shared layout, colors, navigation, skill filters, and email copy |
+| [projects.css](projects.css), [projects.js](projects.js), and [project-art.css](project-art.css) | Project explorer, case study dialogs, and cover artwork |
+| [terminal.css](terminal.css) and [terminal.js](terminal.js) | Interactive terminal and command handling |
+| [Ashhab Quddusi.pdf](Ashhab%20Quddusi.pdf) | Résumé linked from the site |
 
-📱 Responsive Design
+## Contact
 
-The portfolio is fully responsive and optimised for:
+[GitHub](https://github.com/AshhabQuddusi) · [LinkedIn](https://www.linkedin.com/in/ashhab-quddusi/) · [Portfolio contact](https://ashhabquddusi.vercel.app/#contact)
 
-Desktop 💻
-Tablet 📱
-Mobile 📲
+## License
 
-## 👨‍💻 Author
-
-**Ashhab Quddusi**  
-B.Tech Computer Science and Engineering Student at Jamia Hamdard University  
-Interested in Software Development, Data Structures & Algorithms, and Web Development.
-
-- LinkedIn: .linkedin.com/in/ashhab-quddusi
-- GitHub: .github.com/Ashhab-Quddusi
-- Email: ashhabquddusi4@gmail.com
-
-  
-📄 License
-
-This project is open source and available under the MIT License.
+The portfolio source is available under the MIT License. The bundled fonts have their own license files. [Font licenses](assets/fonts/)
