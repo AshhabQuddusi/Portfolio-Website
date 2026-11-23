@@ -1,213 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ashhab Quddusi — Software Engineer</title>
-  <meta name="description" content="Portfolio of Ashhab Quddusi — Software Engineering student, web developer, and AI enthusiast based in New Delhi, India." />
-  <meta name="google-site-verification" content="BfVStdMyx9eQ6Q37nNxColvM6l38yFELjq5np6rR0Mw" />
-  <meta name="google-site-verification" content="Z_so_9JoqLWMcLRLlVS-3Cc-iVOcg94zYAEl9pXRCrw" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#000000">
-  <link rel="canonical" href="https://ashhabquddusi.vercel.app/" />
-
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-icon-180x180.png">
-  <link rel="manifest" href="/public/manifest.json">
-  <meta name="msapplication-config" content="/public/browserconfig.xml">
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ashhabquddusi.vercel.app/" />
-  <meta property="og:title" content="Ashhab Quddusi — Software Engineer" />
-  <meta property="og:description" content="Software Engineering Student, Web Developer, and AI Enthusiast based in New Delhi, India." />
-  <meta property="og:image" content="https://ashhabquddusi.vercel.app/profile-preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://ashhabquddusi.vercel.app/" />
-  <meta name="twitter:title" content="Ashhab Quddusi — Software Engineer" />
-  <meta name="twitter:description" content="Software Engineering Student, Web Developer, and AI Enthusiast." />
-  <meta name="twitter:image" content="https://ashhabquddusi.vercel.app/profile-preview.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Ashhab Quddusi is a software engineer in New Delhi. Explore his full-stack projects, experience, technical skills, and certifications.">
+  <meta name="google-site-verification" content="BfVStdMyx9eQ6Q37nNxColvM6l38yFELjq5np6rR0Mw">
+  <meta name="google-site-verification" content="Z_so_9JoqLWMcLRLlVS-3Cc-iVOcg94zYAEl9pXRCrw">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f8f7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191c19" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ashhabquddusi.vercel.app/">
+  <link rel="icon" href="public/favicon.ico">
+  <link rel="apple-touch-icon" href="public/apple-icon-180x180.png">
+  <link rel="manifest" href="public/manifest.json">
+  <meta name="msapplication-config" content="public/browserconfig.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ashhabquddusi.vercel.app/">
+  <meta property="og:title" content="Ashhab Quddusi — Software Engineer">
+  <meta property="og:description" content="Full-stack projects, experience, and credentials from a developer based in New Delhi, India.">
+  <meta property="og:image" content="https://ashhabquddusi.vercel.app/profile-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ashhab Quddusi’s portfolio, with an illustrated desktop computer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ashhab Quddusi — Software Engineer">
+  <meta name="twitter:description" content="Full-stack projects, experience, and credentials from a developer based in New Delhi, India.">
+  <meta name="twitter:image" content="https://ashhabquddusi.vercel.app/profile-preview.png">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-art.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-<div id="intro-overlay">
-  <div class="intro-slash"></div>
-  <div class="intro-slash"></div>
-  <div class="intro-slash"></div>
-  <div class="intro-slash"></div>
-  <div class="intro-name">
-    <span class="row first-row" id="introFirst"></span>
-    <span class="row last-row" id="introLast"></span>
-  </div>
-  <div class="intro-underline"></div>
-  <p class="intro-tag">Software Engineer · New Delhi, India</p>
-  <div class="intro-progress-track">
-    <div class="intro-progress-bar"></div>
-  </div>
-  <div class="intro-wipe" id="introWipe"></div>
-  <div class="intro-wipe-out" id="introWipeOut"></div>
-</div>
-
-<nav id="nav">
-  <a href="#hero" class="nav-logo"><span>A</span>Q</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#story">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certs">Certifications</a></li>
-    <li><a href="#leadership">Leadership</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span class="icon-dark">🌙</span>
-      <span class="icon-light">☀️</span>
-    </button>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="hero-bg-grid"></div>
-
-  <div class="hero-top">
-    <div class="hero-roles">
-      <span>SOFTWARE ENGINEER</span>
-      <span>FULL-STACK DEVELOPER</span>
-      <span>AI ENTHUSIAST</span>
-      <span>BUILDER</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="icon-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></symbol><symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></symbol><symbol id="icon-code" viewBox="0 0 24 24"><path d="m7 7-5 5 5 5m10-10 5 5-5 5m-4-14-2 18"/></symbol><symbol id="icon-external" viewBox="0 0 24 24"><path d="M13 4h7v7m0-7-10 10M10 5H5v14h14v-5"/></symbol><symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></symbol><symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol><symbol id="icon-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol></defs></svg>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <a class="brand" href="#hero"><span class="brand-mark" aria-hidden="true">&gt;_</span><span>Ashhab Quddusi<span class="period">.</span></span></a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="#projects">Work</a><a href="#story">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
+      <div class="header-actions">
+        <a class="resume-button" href="Ashhab%20Quddusi.pdf" target="_blank" rel="noopener"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-file"></use></svg> Résumé</a>
+        <button type="button" class="icon-button menu-button" id="menu-button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" hidden><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-menu"></use></svg><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg></button>
+      </div>
     </div>
-    <div class="hero-quote">
-      <p>"Code is not just instructions —<br/>it's the architecture<br/>of ideas made real."</p>
-    </div>
-  </div>
+  </header>
+  <main id="main">
+    <section class="container hero" id="hero" aria-labelledby="name">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="rule"></span>Software engineer</p>
+        <h1 id="name">Ashhab<br>Quddusi<span class="period">.</span></h1>
+        <p class="hero-intro">I build full-stack web applications and explore applied AI. Based in New Delhi, studying Computer Science at Jamia Hamdard University.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="button button-primary"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> View projects</a>
+          <a href="#contact" class="text-link">Get in touch</a>
+        </div>
+        <p class="availability"><span aria-hidden="true"></span>Open to internships &amp; collaborations</p>
+      </div>
+      <figure class="workstation">
+        <div class="drawing">
+          <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i><i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
+          <img src="assets/computer.webp" width="1056" height="792" fetchpriority="high" alt="Pen-and-ink illustration of a desktop computer with a vermilion terminal screen, keyboard, and mouse.">
+        </div>
+        <figcaption><span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-pin"></use></svg>New Delhi, India</span><span>UTC +05:30</span></figcaption>
+      </figure>
+    </section>
 
-  <div class="hero-center">
-    <div class="hero-particles" id="heroParticles"></div>
-    <div class="hero-name" id="heroName">
-      <span class="first name-row" id="heroFirst"></span>
-      <span class="last name-row" id="heroLast"></span>
-    </div>
-    <div class="hero-name-underline"></div>
-  </div>
+    <section class="work-section section" id="projects" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="work-title">Selected work<span class="period" aria-hidden="true">.</span></h2>
+          <span class="section-count">6 projects</span>
+        </div>
+        <div class="projects-grid">
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/counterfile" target="_blank" rel="noopener" aria-label="View Counterfile source on GitHub"><div class="project-art art-counterfile" aria-hidden="true"><div class="appeal"><span class="art-type">Counterfile</span><b>Appeal<br>packet</b><span class="rules"><i></i><i></i><i></i></span><span class="reference"><em>R01</em></span><span class="rules"><i></i><i></i></span></div><div class="record"><span class="art-type">Source record</span><b>Payer rule</b><span class="rules"><i></i><i></i></span><span class="reference"><em>R01</em></span><span class="rules"><i></i><i></i><i></i></span></div></div></a>
+            <div class="project-body">
+              <h3>Counterfile</h3>
+              <p>A Homingo Hack Days project that turns synthetic insurance denials into first-level appeal packets with citations and a human review step.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Next.js</li><li>TypeScript</li><li>PDF.js</li><li>Tesseract.js</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/counterfile" target="_blank" rel="noopener" aria-label="Source code for Counterfile"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+            </div>
+          </article>
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/JobNest" target="_blank" rel="noopener" aria-label="View JobNest — AI Recruitment source on GitHub"><div class="project-art art-jobnest" aria-hidden="true"><div class="folder"></div><div class="sheet"><span class="art-type">Applicant file</span><b class="job-name">JobNest</b><div class="dossier"><span class="portrait"></span><span class="typeset"><i></i><i></i><i></i><i></i></span></div><span class="typeset"><i></i><i></i><i></i></span><span class="seal"></span></div></div></a>
+            <div class="project-body">
+              <h3>JobNest — AI Recruitment</h3>
+              <p>Matches candidates to roles using NLP and machine learning, with a Flask backend, MySQL database, and React frontend.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>Flask</li><li>MySQL</li><li>React</li><li>NLP</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/JobNest" target="_blank" rel="noopener" aria-label="Source code for JobNest — AI Recruitment"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+            </div>
+          </article>
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/Binance-futures-trading-bot" target="_blank" rel="noopener" aria-label="View Binance Trading Bot source on GitHub"><div class="project-art art-binance" aria-hidden="true"><div class="ticker-head"><b>Binance Futures</b><span class="art-type">Candlestick</span></div><div class="plot"><i class="candle" style="--b:16%;--h:11%"></i><i class="candle" style="--b:25%;--h:6%"></i><i class="candle down" style="--b:22%;--h:5%"></i><i class="candle down" style="--b:20%;--h:4%"></i><i class="candle" style="--b:21%;--h:12%"></i><i class="candle" style="--b:29%;--h:5%"></i><i class="candle" style="--b:34%;--h:12%"></i><i class="candle down" style="--b:32%;--h:12%"></i><i class="candle down" style="--b:30%;--h:6%"></i><i class="candle" style="--b:31%;--h:11%"></i><i class="candle" style="--b:40%;--h:13%"></i><i class="candle down" style="--b:47%;--h:8%"></i><i class="candle down" style="--b:44%;--h:6%"></i><i class="candle" style="--b:45%;--h:14%"></i><i class="candle" style="--b:55%;--h:11%"></i><i class="candle down" style="--b:53%;--h:9%"></i><i class="candle down" style="--b:47%;--h:8%"></i><i class="candle" style="--b:48%;--h:8%"></i><i class="candle" style="--b:55%;--h:11%"></i><i class="candle down" style="--b:61%;--h:7%"></i><i class="candle" style="--b:62%;--h:13%"></i><i class="candle" style="--b:71%;--h:15%"></i><i class="candle down" style="--b:69%;--h:10%"></i><i class="candle" style="--b:71%;--h:9%"></i></div><div class="axis"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-foot art-type"><span>Market chart</span><span>Time</span></div></div></a>
+            <div class="project-body">
+              <h3>Binance Trading Bot</h3>
+              <p>Automates configurable trading strategies on Binance Futures through the REST API.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>REST APIs</li><li>Testing</li><li>Automation</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/Binance-futures-trading-bot" target="_blank" rel="noopener" aria-label="Source code for Binance Trading Bot"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+            </div>
+          </article>
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/Citadel-library-management" target="_blank" rel="noopener" aria-label="View Citadel Library Management source on GitHub"><div class="project-art art-citadel" aria-hidden="true"><div class="library-slip"><b>Citadel Library</b><span class="art-type">Lending record</span><i></i><i></i><i></i><i></i><i></i></div><div class="book-stack"><span class="book"><b>Citadel</b></span><span class="book"><b>Library</b></span><span class="book"><b>Catalogue</b></span><span class="book"><b>Reference</b></span><span class="book"><b>Index</b></span></div></div></a>
+            <div class="project-body">
+              <h3>Citadel Library Management</h3>
+              <p>Tracks books, borrowers, issues, and returns with searchable records, rental workflows, and automated notifications.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/Citadel-library-management" target="_blank" rel="noopener" aria-label="Source code for Citadel Library Management"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+            </div>
+          </article>
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/LearnTech-platform" target="_blank" rel="noopener" aria-label="View Learn Tech Platform source on GitHub"><div class="project-art art-learntech" aria-hidden="true"><div class="workbook"><div class="lesson-cover"><span class="art-type">Programming</span><b>Learn<br>Tech</b><i>&lt;/&gt;</i></div><div class="lesson-page"><span class="art-type">Field exercises</span><b>Say hello.</b><code>def greet():
+  return "Hello!"</code><i></i><i></i><i></i></div></div></div></a>
+            <div class="project-body">
+              <h3>Learn Tech Platform</h3>
+              <p>A gamified platform for learning technical skills, built with Python and a responsive web frontend.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/LearnTech-platform" target="_blank" rel="noopener" aria-label="Source code for Learn Tech Platform"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+            </div>
+          </article>
+          <article class="project">
+            <a class="project-art-link" href="https://github.com/AshhabQuddusi/Portfolio-Website" target="_blank" rel="noopener" aria-label="View Personal Portfolio Website source on GitHub"><div class="project-art art-portfolio" aria-hidden="true"><div class="proof"><div class="browser-bar"><i></i><i></i><i></i><span class="art-type">ashhabquddusi.vercel.app</span></div><b class="proof-name">Ashhab<br><em>Quddusi</em></b><span class="proof-role art-type">Software engineer</span><i class="press-mark"></i></div></div></a>
+            <div class="project-body">
+              <h3>Personal Portfolio Website</h3>
+              <p>My personal site for sharing projects, education, technical skills, and contact details across devices.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/Portfolio-Website" target="_blank" rel="noopener" aria-label="Source code for Personal Portfolio Website"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a><a href="https://ashhabquddusi.vercel.app/" target="_blank" rel="noopener">Live site <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <div class="hero-scroll">
-    <span>— Scroll to enter</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
+    <section class="profile-section section" id="story" aria-labelledby="about-title">
+      <div class="container profile-layout">
+        <h2 id="about-title">About me<span class="period" aria-hidden="true">.</span></h2>
+        <div class="about-copy">
+          <p class="statement">I’m a B.Tech Computer Science student at Jamia Hamdard University in New Delhi and a Software Engineering Intern at Corporeal Health Solutions.</p>
+          <p>I work across the stack, from responsive web interfaces to Python backends and NLP models. I enjoy the practical side of engineering: writing maintainable code, integrating APIs, and getting an application working for the people who use it.</p>
+          <dl class="stats" id="impact">
+            <div><dt>Projects shipped</dt><dd>6</dd></div>
+            <div><dt>Certifications earned</dt><dd>11+</dd></div>
+            <div><dt>Technical skills</dt><dd>38+</dd></div>
+            <div><dt>Problems to solve</dt><dd>∞</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
 
-<div class="marquee-strip">
-  <div class="marquee-inner" id="marquee"></div>
-</div>
+    <section class="section container" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title">Experience<span class="period" aria-hidden="true">.</span></h2></div>
+      <div class="roles">
+        <article class="role"><h3 class="role-type">Internship</h3><div><div class="role-heading"><div><h4>Software Engineering Intern</h4><p>Corporeal Health Solutions Pvt Ltd · Remote, New Delhi, India</p></div><span class="date">June 2026 – Present</span></div>
+              <p class="role-desc">Developing responsive cross-platform applications using Flutter and Dart, and building modern web interfaces with JavaScript, HTML, and CSS. Collaborating with the development team to implement new features, resolve bugs, and integrate APIs, with a focus on application performance and user experience. Using Git for version control while following industry-standard development practices.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Flutter</li><li>Dart</li><li>JavaScript</li><li>APIs</li><li>Git</li></ul></div></article>
+        <article class="role" id="leadership"><h3 class="role-type">Leadership &amp; involvement</h3><div><div class="role-heading"><div><h4>Active Member &amp; Technical Contributor</h4><p>IEEE Jamia Hamdard Student Branch</p></div><span class="date">October 2025 – Present</span></div>
+              <p class="role-desc">Participated in Technozova technical competitions and industry workshops. Collaborated on cross-functional engineering projects, enhancing leadership and communication skills.</p>
+              <ul class="tags" aria-label="Technologies and skills"><li>Teamwork</li><li>Leadership</li><li>Problem Solving</li><li>Communication</li></ul></div></article>
+      </div>
+    </section>
 
-<section id="story">
-  <div class="story-left reveal-left">
-    <div class="eyebrow"><span class="eyebrow-label">About Me</span><div class="eyebrow-line"></div></div>
-    <h2 class="story-headline">ENGINEER.<br/><em>BUILDER.</em><br/>PROBLEM SOLVER.</h2>
-    <p class="story-bio">Ashhab Quddusi is a B.Tech Computer Science student at Jamia Hamdard University, New Delhi, driven by a passion for building elegant, performant software. He specialises in full-stack development and AI integration, turning complex problems into clean, scalable solutions. Currently a Software Engineering Intern at Corporeal Health Solutions, he brings hands-on industry experience, technical depth, and a product mindset to everything he ships.</p>
-  </div>
-  <div class="story-right reveal-right">
-    <div class="insight">
-      <div class="insight-num">01</div>
-      <div class="insight-title">Engineering as Craft</div>
-      <div class="insight-desc">Every line of code is a deliberate decision. Ashhab treats software development as a discipline demanding both rigour and creativity, writing code that's functional, maintainable, and intentional.</div>
-    </div>
-    <div class="insight">
-      <div class="insight-num">02</div>
-      <div class="insight-title">AI-First Thinking</div>
-      <div class="insight-desc">From NLP models to Gemini APIs and Vertex AI, he builds with AI at the core, not as an afterthought, but as the engine of product differentiation.</div>
-    </div>
-    <div class="insight">
-      <div class="insight-num">03</div>
-      <div class="insight-title">Ship with Purpose</div>
-      <div class="insight-desc">Speed matters, but so does direction. He ships software that solves the right problem, not just any problem, with a bias for clean architecture and real-world impact.</div>
-    </div>
-  </div>
-</section>
+    <section class="skills-section section" id="skills" aria-labelledby="skills-title">
+      <div class="container profile-layout">
+        <h2 id="skills-title">Technical skills<span class="period" aria-hidden="true">.</span></h2>
+        <div><div class="filters" id="skill-filters" role="group" aria-label="Filter skills by category" hidden><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="language" aria-pressed="false">Languages</button><button type="button" data-filter="web" aria-pressed="false">Web</button><button type="button" data-filter="ai" aria-pressed="false">AI / ML</button><button type="button" data-filter="data" aria-pressed="false">Data</button><button type="button" data-filter="tools" aria-pressed="false">Tools</button></div>
+        <ul class="skill-list" id="skill-list"><li data-group="language">Python</li><li data-group="language">JavaScript</li><li data-group="language">C++</li><li data-group="language">Java</li><li data-group="language">SQL</li><li data-group="language">Dart</li><li data-group="web">HTML5</li><li data-group="web">CSS3</li><li data-group="web">React</li><li data-group="web">Flask</li><li data-group="web">REST APIs</li><li data-group="web">Front-End Dev</li><li data-group="web">UI Design</li><li data-group="data">MySQL</li><li data-group="data">Pandas</li><li data-group="data">Data Analysis</li><li data-group="data">Data Structures &amp; Algorithms</li><li data-group="ai">Machine Learning</li><li data-group="ai">Generative AI</li><li data-group="ai">Google Gemini</li><li data-group="ai">Vertex AI</li><li data-group="ai">Prompt Engineering</li><li data-group="ai">NLP</li><li data-group="ai">Gemini APIs</li><li data-group="ai">Imagen</li><li data-group="tools">Git / GitHub</li><li data-group="tools">OOP / UML</li><li data-group="tools">Flutter</li><li data-group="tools">Python Testing</li><li data-group="tools">Test Automation</li><li data-group="tools">Shell Scripting</li><li data-group="tools">Problem Solving</li><li data-group="tools">Code Review</li><li data-group="tools">Code Quality</li><li data-group="tools">Debugging</li><li data-group="tools">Error Handling</li><li data-group="tools">Virtual Environments</li><li data-group="tools">Dashboard Tools</li></ul>
+        <p class="visually-hidden" id="skill-status" role="status"></p></div>
+      </div>
+    </section>
 
-<section id="skills">
-  <div class="eyebrow reveal"><span class="eyebrow-label">Technical Skills</span><div class="eyebrow-line"></div></div>
-  <div class="skills-filter reveal" id="skillFilter">
-    <button class="filter-btn active" data-cat="all">All</button>
-    <button class="filter-btn" data-cat="language">Languages</button>
-    <button class="filter-btn" data-cat="web">Web</button>
-    <button class="filter-btn" data-cat="ai">AI / ML</button>
-    <button class="filter-btn" data-cat="data">Data</button>
-    <button class="filter-btn" data-cat="tools">Tools</button>
-  </div>
-  <div class="skills-grid" id="skillsGrid"></div>
-</section>
+    <section class="section container" id="certs" aria-labelledby="cert-title">
+      <div class="section-heading"><h2 id="cert-title">Certifications<span class="period" aria-hidden="true">.</span></h2><span class="section-count">11 credentials</span></div>
+      <ul class="credentials">
+            <li><a class="credential" href="https://freecodecamp.org/certification/ashhabquddusi/python-v9" target="_blank" rel="noopener"><span class="credential-name">Python Developer Certification</span><span class="issuer">freeCodeCamp</span><span class="date">Feb 2026</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.theforage.com/completion-certificates/32A6DqtsbF7LbKdcq/jhiG2W9K8KLZK8nXP_32A6DqtsbF7LbKdcq_696a1b178d5b9c666d16f9d7_1770820562251_completion_certificate.pdf" target="_blank" rel="noopener"><span class="credential-name">Software Engineering Job Simulation</span><span class="issuer">Quantium · Forage</span><span class="date">Feb 2026</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.theforage.com/completion-certificates/j43dGscQHtJJ57N54/a77WE3de8qrxWferQ_j43dGscQHtJJ57N54_696a1b178d5b9c666d16f9d7_1770811447317_completion_certificate.pdf" target="_blank" rel="noopener"><span class="credential-name">Software Engineering Job Simulation</span><span class="issuer">Electronic Arts · Forage</span><span class="date">Feb 2026</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.coursera.org/account/accomplishments/records/JYW60RHB3X1J" target="_blank" rel="noopener"><span class="credential-name">Data Structures and Algorithms</span><span class="issuer">Amazon · Coursera</span><span class="date">Jan 2026</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.hackerrank.com/certificates/442593788050" target="_blank" rel="noopener"><span class="credential-name">Software Engineer Intern Certificate</span><span class="issuer">HackerRank</span><span class="date">May 2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.credly.com/badges/6b73b164-674b-4ec5-b5aa-b4f0f2066311/linked_in_profile" target="_blank" rel="noopener"><span class="credential-name">Build Real World AI Apps with Gemini &amp; Imagen</span><span class="issuer">Google</span><span class="date">Aug 2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.credly.com/badges/e995c790-e54e-444d-b57f-bc312b852504/linked_in_profile" target="_blank" rel="noopener"><span class="credential-name">Explore Generative AI with Vertex AI</span><span class="issuer">Google</span><span class="date">Aug 2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.credly.com/badges/09ac7a00-669a-4801-bfc7-80f26cc19a11/linked_in_profile" target="_blank" rel="noopener"><span class="credential-name">Inspect Rich Docs with Gemini Multimodality &amp; RAG</span><span class="issuer">Google</span><span class="date">Aug 2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.credly.com/badges/947de5ed-48fa-418c-a839-a9f257ac2d66/linked_in_profile" target="_blank" rel="noopener"><span class="credential-name">Prompt Design in Vertex AI</span><span class="issuer">Google</span><span class="date">Apr 2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://freecodecamp.org/certification/AshhabQuddusi/javascript-algorithms-and-data-structures" target="_blank" rel="noopener"><span class="credential-name">JavaScript Algorithms and Data Structures</span><span class="issuer">freeCodeCamp</span><span class="date">Aug 2024</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+            <li><a class="credential" href="https://www.credly.com/" target="_blank" rel="noopener"><span class="credential-name">Intro to Generative AI Learning Path</span><span class="issuer">Google Cloud</span><span class="date">2025</span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></li>
+      </ul>
+    </section>
 
-<section id="experience">
-  <div class="eyebrow reveal"><span class="eyebrow-label">Work Experience</span><div class="eyebrow-line"></div></div>
-  <h2 class="section-headline reveal">INDUSTRY<br/>PROVEN.</h2>
-  <div class="exp-list reveal" id="expList"></div>
-</section>
-
-<section id="projects">
-  <div class="projects-header reveal">
-    <div>
-      <div class="eyebrow"><span class="eyebrow-label">Featured Projects</span><div class="eyebrow-line"></div></div>
-      <h2 class="projects-headline">THE WORK THAT<br/>SPEAKS FOR ITSELF.</h2>
-    </div>
-    <div class="projects-count">05 / Projects</div>
-  </div>
-  <div class="projects-grid reveal" id="projectsGrid"></div>
-</section>
-
-<section id="impact">
-  <div class="eyebrow reveal"><span class="eyebrow-label">By the Numbers</span></div>
-  <h2 class="section-headline reveal">THE NUMBERS<br/>TELL THE STORY.</h2>
-  <div class="stats-grid reveal">
-    <div class="stat-card"><div class="stat-num" data-target="5">0</div><div class="stat-label">Projects Shipped</div></div>
-    <div class="stat-card"><div class="stat-num" data-target="11">0</div><div class="stat-label">Certifications Earned</div></div>
-    <div class="stat-card"><div class="stat-num" data-target="38">0</div><div class="stat-label">Skills Mastered</div></div>
-    <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Problems to Solve</div></div>
-  </div>
-</section>
-
-<section id="certs">
-  <div class="eyebrow reveal"><span class="eyebrow-label">Certifications</span><div class="eyebrow-line"></div></div>
-  <h2 class="section-headline reveal">11+ CREDENTIALS.<br/>ZERO SHORTCUTS.</h2>
-  <div class="certs-grid reveal" id="certsGrid"></div>
-</section>
-
-<section id="leadership">
-  <div class="eyebrow reveal"><span class="eyebrow-label">Leadership & Involvement</span><div class="eyebrow-line"></div></div>
-  <h2 class="section-headline reveal">BEYOND<br/>THE CODE.</h2>
-  <div class="exp-list reveal" id="leadershipList"></div>
-</section>
-
-<section id="contact">
-  <div class="contact-bg"></div>
-  <h2 class="cta-headline reveal">HAVE A PROBLEM<br/><span>WORTH SOLVING?</span></h2>
-  <p class="cta-sub reveal">Based in New Delhi, India. Open to internships, collaborations & exciting projects.</p>
-  <a href="mailto:ashhabquddusi2@gmail.com" class="cta-btn reveal">SAY HELLO</a>
-  <div class="cta-socials reveal">
-    <a href="https://github.com/AshhabQuddusi" class="cta-social" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/ashhab-quddusi/" class="cta-social" target="_blank">LinkedIn</a>
-    <a href="mailto:ashhabquddusi2@gmail.com" class="cta-social">Email</a>
-    <a href="Ashhab%20Quddusi.pdf" class="cta-social" target="_blank">Resume</a>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo"><span>A</span>SHHAB QUDDUSI</div>
-  <div class="footer-copy">© 2026 · All rights reserved · New Delhi, India</div>
-</footer>
-
-<script src="script.js"></script>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div><h2 id="contact-title">Get in touch<span aria-hidden="true">.</span></h2>
+        <p>Based in New Delhi, India. Open to internships, collaborations, and new projects.</p></div>
+        <div class="contact-links"><a class="email" href="mailto:ashhabquddusi2@gmail.com"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-mail"></use></svg> ashhabquddusi2@gmail.com</a>
+        <div class="social-links"><a href="https://github.com/AshhabQuddusi" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/ashhab-quddusi/" target="_blank" rel="noopener">LinkedIn</a><a href="Ashhab%20Quddusi.pdf" target="_blank" rel="noopener">Résumé</a></div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><span>© 2026 Ashhab Quddusi</span><a href="#hero">Back to top</a></div></footer>
 </body>
 </html>
