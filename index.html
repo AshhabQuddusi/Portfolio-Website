@@ -30,7 +30,11 @@
   <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="project-art.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="terminal.css">
   <script src="script.js" defer></script>
+  <script src="projects.js" defer></script>
+  <script src="terminal.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -44,6 +48,7 @@
         <button type="button" class="icon-button menu-button" id="menu-button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" hidden><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-menu"></use></svg><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg></button>
       </div>
     </div>
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
   </header>
   <main id="main">
     <section class="container hero" id="hero" aria-labelledby="name">
@@ -61,6 +66,28 @@
         <div class="drawing">
           <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i><i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
           <img src="assets/computer.webp" width="1056" height="792" fetchpriority="high" alt="Pen-and-ink illustration of a desktop computer with a vermilion terminal screen, keyboard, and mouse.">
+          <button class="terminal-launch" id="terminal-launch" type="button" aria-controls="portfolio-terminal" aria-expanded="false" hidden><span aria-hidden="true">&gt;_</span> Open terminal</button>
+          <section class="portfolio-terminal" id="portfolio-terminal" aria-labelledby="terminal-title" hidden>
+            <header class="terminal-header">
+              <h2 id="terminal-title" tabindex="-1"><span aria-hidden="true"></span>Portfolio terminal</h2>
+              <button id="terminal-close" type="button" aria-label="Close terminal"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg></button>
+            </header>
+            <div class="terminal-shortcuts" aria-label="Quick commands" role="group">
+              <button type="button" data-command="help">help</button>
+              <button type="button" data-command="work">work</button>
+              <button type="button" data-command="skills">skills</button>
+              <button type="button" data-command="contact">contact</button>
+            </div>
+            <div id="terminal-output" class="terminal-output" role="status" aria-atomic="true" aria-label="Command output" tabindex="0">
+              <p>Type a command or choose one above.</p>
+            </div>
+            <form id="terminal-form" class="terminal-form">
+              <span aria-hidden="true">$</span>
+              <label class="visually-hidden" for="terminal-command">Terminal command</label>
+              <input type="text" id="terminal-command" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Enter a command">
+              <button type="submit">Run</button>
+            </form>
+          </section>
         </div>
         <figcaption><span><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-pin"></use></svg>New Delhi, India</span><span>UTC +05:30</span></figcaption>
       </figure>
@@ -70,19 +97,33 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="work-title">Selected work<span class="period" aria-hidden="true">.</span></h2>
-          <span class="section-count">6 projects</span>
+          <span class="section-count" id="project-count" role="status">6 projects</span>
+        </div>
+        <div class="project-filters filters" id="project-filters" role="group" aria-label="Filter projects" hidden>
+          <button type="button" data-project-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-project-filter="web" aria-pressed="false">Web apps</button>
+          <button type="button" data-project-filter="documents" aria-pressed="false">Documents</button>
+          <button type="button" data-project-filter="automation" aria-pressed="false">Automation</button>
         </div>
         <div class="projects-grid">
-          <article class="project">
+          <article class="project" id="counterfile" data-project-groups="web documents automation">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/counterfile" target="_blank" rel="noopener" aria-label="View Counterfile source on GitHub"><div class="project-art art-counterfile" aria-hidden="true"><div class="appeal"><span class="art-type">Counterfile</span><b>Appeal<br>packet</b><span class="rules"><i></i><i></i><i></i></span><span class="reference"><em>R01</em></span><span class="rules"><i></i><i></i></span></div><div class="record"><span class="art-type">Source record</span><b>Payer rule</b><span class="rules"><i></i><i></i></span><span class="reference"><em>R01</em></span><span class="rules"><i></i><i></i><i></i></span></div></div></a>
             <div class="project-body">
               <h3>Counterfile</h3>
               <p>A Homingo Hack Days project that turns synthetic insurance denials into first-level appeal packets with citations and a human review step.</p>
               <ul class="tags" aria-label="Technologies and skills"><li>Next.js</li><li>TypeScript</li><li>PDF.js</li><li>Tesseract.js</li></ul>
-              <div class="project-links"><a href="https://github.com/AshhabQuddusi/counterfile" target="_blank" rel="noopener" aria-label="Source code for Counterfile"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
+              <div class="project-links"><a href="https://github.com/AshhabQuddusi/counterfile" target="_blank" rel="noopener" aria-label="Source code for Counterfile"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a><a href="https://github.com/AshhabQuddusi/counterfile/blob/main/evals/report.md" target="_blank" rel="noopener">See the evaluation</a></div>
             </div>
+            <template class="case-study" data-project-kind="Hackathon project">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Read the evidence</strong><p>PDF.js extracts selectable text. Tesseract.js reads scanned documents in the browser. The parser keeps the source lines so a clerk can verify what it found.</p></li>
+                <li><strong>Check eligibility</strong><p>Local rules classify the denial and calculate the appeal deadline. Conflicting documents go to a reviewer. Expired cases get a reason and next action.</p></li>
+                <li><strong>Review and export</strong><p>Each draft cites the underlying records and payer rules. A reviewer confirms the packet before copying or printing it.</p></li>
+              </ol>
+            </template>
           </article>
-          <article class="project">
+          <article class="project" id="jobnest" data-project-groups="web documents">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/JobNest" target="_blank" rel="noopener" aria-label="View JobNest — AI Recruitment source on GitHub"><div class="project-art art-jobnest" aria-hidden="true"><div class="folder"></div><div class="sheet"><span class="art-type">Applicant file</span><b class="job-name">JobNest</b><div class="dossier"><span class="portrait"></span><span class="typeset"><i></i><i></i><i></i><i></i></span></div><span class="typeset"><i></i><i></i><i></i></span><span class="seal"></span></div></div></a>
             <div class="project-body">
               <h3>JobNest — AI Recruitment</h3>
@@ -90,8 +131,16 @@
               <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>Flask</li><li>MySQL</li><li>React</li><li>NLP</li></ul>
               <div class="project-links"><a href="https://github.com/AshhabQuddusi/JobNest" target="_blank" rel="noopener" aria-label="Source code for JobNest — AI Recruitment"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
             </div>
+            <template class="case-study" data-project-kind="Recruitment app">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Extract résumé text</strong><p>Applicants upload a résumé and apply to a listing. The backend extracts the PDF text with pdfplumber.</p></li>
+                <li><strong>Rank applications</strong><p>Scikit-learn converts résumé and job-description text to TF-IDF vectors. Cosine similarity scores how closely they match.</p></li>
+                <li><strong>Support review</strong><p>Recruiters can inspect the ranked applications and decide whom to shortlist or reject. Applicants can check their status.</p></li>
+              </ol>
+            </template>
           </article>
-          <article class="project">
+          <article class="project" id="binance-trading-bot" data-project-groups="automation">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/Binance-futures-trading-bot" target="_blank" rel="noopener" aria-label="View Binance Trading Bot source on GitHub"><div class="project-art art-binance" aria-hidden="true"><div class="ticker-head"><b>Binance Futures</b><span class="art-type">Candlestick</span></div><div class="plot"><i class="candle" style="--b:16%;--h:11%"></i><i class="candle" style="--b:25%;--h:6%"></i><i class="candle down" style="--b:22%;--h:5%"></i><i class="candle down" style="--b:20%;--h:4%"></i><i class="candle" style="--b:21%;--h:12%"></i><i class="candle" style="--b:29%;--h:5%"></i><i class="candle" style="--b:34%;--h:12%"></i><i class="candle down" style="--b:32%;--h:12%"></i><i class="candle down" style="--b:30%;--h:6%"></i><i class="candle" style="--b:31%;--h:11%"></i><i class="candle" style="--b:40%;--h:13%"></i><i class="candle down" style="--b:47%;--h:8%"></i><i class="candle down" style="--b:44%;--h:6%"></i><i class="candle" style="--b:45%;--h:14%"></i><i class="candle" style="--b:55%;--h:11%"></i><i class="candle down" style="--b:53%;--h:9%"></i><i class="candle down" style="--b:47%;--h:8%"></i><i class="candle" style="--b:48%;--h:8%"></i><i class="candle" style="--b:55%;--h:11%"></i><i class="candle down" style="--b:61%;--h:7%"></i><i class="candle" style="--b:62%;--h:13%"></i><i class="candle" style="--b:71%;--h:15%"></i><i class="candle down" style="--b:69%;--h:10%"></i><i class="candle" style="--b:71%;--h:9%"></i></div><div class="axis"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-foot art-type"><span>Market chart</span><span>Time</span></div></div></a>
             <div class="project-body">
               <h3>Binance Trading Bot</h3>
@@ -99,8 +148,16 @@
               <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>REST APIs</li><li>Testing</li><li>Automation</li></ul>
               <div class="project-links"><a href="https://github.com/AshhabQuddusi/Binance-futures-trading-bot" target="_blank" rel="noopener" aria-label="Source code for Binance Trading Bot"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
             </div>
+            <template class="case-study" data-project-kind="Python CLI">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Validate input</strong><p>The command line validates the side, quantity, and order-specific fields before sending a request. A dry run previews the order locally.</p></li>
+                <li><strong>Submit to Testnet</strong><p>The REST client can place market, limit, and stop-market orders on Binance USDT-M Futures Testnet.</p></li>
+                <li><strong>Inspect results</strong><p>Rotating logs capture requests and errors for troubleshooting. A JSON output flag makes responses easier to use in scripts.</p></li>
+              </ol>
+            </template>
           </article>
-          <article class="project">
+          <article class="project" id="citadel" data-project-groups="web automation">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/Citadel-library-management" target="_blank" rel="noopener" aria-label="View Citadel Library Management source on GitHub"><div class="project-art art-citadel" aria-hidden="true"><div class="library-slip"><b>Citadel Library</b><span class="art-type">Lending record</span><i></i><i></i><i></i><i></i><i></i></div><div class="book-stack"><span class="book"><b>Citadel</b></span><span class="book"><b>Library</b></span><span class="book"><b>Catalogue</b></span><span class="book"><b>Reference</b></span><span class="book"><b>Index</b></span></div></div></a>
             <div class="project-body">
               <h3>Citadel Library Management</h3>
@@ -108,8 +165,16 @@
               <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
               <div class="project-links"><a href="https://github.com/AshhabQuddusi/Citadel-library-management" target="_blank" rel="noopener" aria-label="Source code for Citadel Library Management"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
             </div>
+            <template class="case-study" data-project-kind="Library management app">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Find and register</strong><p>Readers can search by title or author, check availability, and register for a digital library card.</p></li>
+                <li><strong>Record loans</strong><p>Flask and Jinja2 handle checkout and return screens. File-based storage keeps loan history and due dates.</p></li>
+                <li><strong>Send reminders</strong><p>SMTP messages cover card issuance, pickup instructions, due dates, and overdue notices.</p></li>
+              </ol>
+            </template>
           </article>
-          <article class="project">
+          <article class="project" id="learntech" data-project-groups="web">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/LearnTech-platform" target="_blank" rel="noopener" aria-label="View Learn Tech Platform source on GitHub"><div class="project-art art-learntech" aria-hidden="true"><div class="workbook"><div class="lesson-cover"><span class="art-type">Programming</span><b>Learn<br>Tech</b><i>&lt;/&gt;</i></div><div class="lesson-page"><span class="art-type">Field exercises</span><b>Say hello.</b><code>def greet():
   return "Hello!"</code><i></i><i></i><i></i></div></div></div></a>
             <div class="project-body">
@@ -118,8 +183,16 @@
               <ul class="tags" aria-label="Technologies and skills"><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
               <div class="project-links"><a href="https://github.com/AshhabQuddusi/LearnTech-platform" target="_blank" rel="noopener" aria-label="Source code for Learn Tech Platform"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a></div>
             </div>
+            <template class="case-study" data-project-kind="Learning platform">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Explore courses</strong><p>The course catalog has category and difficulty filters. A separate resource library lets learners search documentation by technology.</p></li>
+                <li><strong>Practice with quests</strong><p>Daily challenges and course progress award XP through a retro game interface.</p></li>
+                <li><strong>Keep progress</strong><p>Flask and Jinja2 render the pages, with SQLite backing account data and session-based access.</p></li>
+              </ol>
+            </template>
           </article>
-          <article class="project">
+          <article class="project" id="portfolio-project" data-project-groups="">
             <a class="project-art-link" href="https://github.com/AshhabQuddusi/Portfolio-Website" target="_blank" rel="noopener" aria-label="View Personal Portfolio Website source on GitHub"><div class="project-art art-portfolio" aria-hidden="true"><div class="proof"><div class="browser-bar"><i></i><i></i><i></i><span class="art-type">ashhabquddusi.vercel.app</span></div><b class="proof-name">Ashhab<br><em>Quddusi</em></b><span class="proof-role art-type">Software engineer</span><i class="press-mark"></i></div></div></a>
             <div class="project-body">
               <h3>Personal Portfolio Website</h3>
@@ -127,9 +200,39 @@
               <ul class="tags" aria-label="Technologies and skills"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
               <div class="project-links"><a href="https://github.com/AshhabQuddusi/Portfolio-Website" target="_blank" rel="noopener" aria-label="Source code for Personal Portfolio Website"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-code"></use></svg> Source code</a><a href="https://ashhabquddusi.vercel.app/" target="_blank" rel="noopener">Live site <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-external"></use></svg></a></div>
             </div>
+            <template class="case-study" data-project-kind="Personal site">
+              <h4>How it works</h4>
+              <ol class="case-stages">
+                <li><strong>Deliver the content</strong><p>The project list, credentials, and résumé links are plain HTML so visitors can reach them before scripts load.</p></li>
+                <li><strong>Adapt to the browser</strong><p>CSS handles the responsive layout and reads the device’s light or dark preference and supported accent color.</p></li>
+                <li><strong>Enhance exploration</strong><p>JavaScript adds the portfolio terminal, project filters, and case studies while keeping direct links available.</p></li>
+              </ol>
+            </template>
           </article>
         </div>
       </div>
+      <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
+        <div class="project-dialog-inner">
+          <div class="case-bar">
+            <p class="case-kind"></p>
+            <form method="dialog">
+              <button class="case-close" type="submit" aria-label="Close case study" autofocus>
+                <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg>
+              </button>
+            </form>
+          </div>
+          <div class="case-header">
+            <div>
+              <h3 id="project-dialog-title"></h3>
+              <p class="case-intro"></p>
+              <ul class="tags case-tags" aria-label="Technologies and skills"></ul>
+            </div>
+            <div class="case-art" aria-hidden="true"></div>
+          </div>
+          <div class="case-details"></div>
+          <div class="case-links"></div>
+        </div>
+      </dialog>
     </section>
 
     <section class="profile-section section" id="story" aria-labelledby="about-title">
@@ -191,6 +294,10 @@
         <div><h2 id="contact-title">Get in touch<span aria-hidden="true">.</span></h2>
         <p>Based in New Delhi, India. Open to internships, collaborations, and new projects.</p></div>
         <div class="contact-links"><a class="email" href="mailto:ashhabquddusi2@gmail.com"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#icon-mail"></use></svg> ashhabquddusi2@gmail.com</a>
+        <div class="copy-email-row" id="copy-email-row" hidden>
+          <button class="copy-email" id="copy-email" type="button"><svg class="icon" width="16" height="16" aria-hidden="true" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg> Copy email</button>
+          <span class="copy-status" id="copy-status" role="status"></span>
+        </div>
         <div class="social-links"><a href="https://github.com/AshhabQuddusi" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/ashhab-quddusi/" target="_blank" rel="noopener">LinkedIn</a><a href="Ashhab%20Quddusi.pdf" target="_blank" rel="noopener">Résumé</a></div></div>
       </div>
     </section>

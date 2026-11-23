@@ -1,0 +1,214 @@
+.project-filters {
+  margin-block: clamp(-.65rem, -1vw, -.35rem) 1.5rem;
+}
+
+.project:target {
+  outline: 2px solid var(--accent-copy);
+  outline-offset: .4rem;
+}
+
+.project-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.project-open {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.project-open:focus-visible { outline-offset: -3px; }
+
+.project-cover .project-art {
+  transition: transform .35s ease;
+}
+
+.project-open-label {
+  position: absolute;
+  right: .65rem;
+  bottom: .65rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 2rem;
+  padding: .12rem .55rem .12rem .7rem;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  color: var(--ink);
+  font: 500 .73rem var(--mono);
+  transition: color .2s, background-color .2s;
+}
+
+.project-open-label::after {
+  content: "+";
+  font-size: 1.1em;
+}
+
+@media (hover: hover) {
+  .project-cover:hover .project-art { transform: scale(1.04); }
+
+  .project-open:hover .project-open-label {
+    color: var(--paper);
+    background: var(--ink);
+  }
+}
+
+.project-dialog {
+  width: min(47rem, calc(100% - 1.5rem));
+  max-height: calc(100% - 1.5rem);
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 1rem 4rem #1116;
+  overscroll-behavior: contain;
+  scroll-padding-top: 3.5rem;
+}
+
+.project-dialog[open] {
+  animation: show-case .22s ease-out;
+}
+
+@keyframes show-case {
+  from { opacity: 0; transform: translateY(.65rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-dialog::backdrop {
+  background: #131915aa;
+  backdrop-filter: blur(3px);
+}
+
+html:has(.project-dialog[open]) { overflow: hidden; }
+
+.project-dialog-inner {
+  padding: clamp(1rem, 4vw, 2.4rem);
+  padding-top: .65rem;
+}
+
+.case-bar,
+.case-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.case-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--paper);
+  justify-content: space-between;
+  min-height: 3.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-kind {
+  color: var(--accent-copy);
+  font: 500 .78rem var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.case-close {
+  display: grid;
+  place-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+}
+
+.case-close:hover { background: var(--paper-alt); }
+
+.case-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.case-header h3 {
+  font-size: clamp(1.8rem, 4.3vw, 2.8rem);
+  text-wrap: initial;
+}
+
+.case-intro {
+  margin-top: .55rem;
+  color: var(--copy);
+}
+
+.case-art .project-art { border: 1px solid var(--line); }
+
+.case-details {
+  margin-top: 1.6rem;
+}
+
+.case-details h4 {
+  font-size: 1.3rem;
+  margin-bottom: .7rem;
+}
+
+.case-stages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: stages;
+  border-top: 1px solid var(--line);
+}
+
+.case-stages li {
+  display: grid;
+  grid-template-columns: 1.65rem minmax(0,.95fr) minmax(0,2.15fr);
+  gap: .8rem;
+  padding-block: .7rem;
+  border-bottom: 1px solid var(--line);
+  counter-increment: stages;
+}
+
+.case-stages li::before {
+  content: counter(stages, decimal-leading-zero);
+  margin-top: .25rem;
+  color: var(--accent-copy);
+  font: 500 .76rem var(--mono);
+}
+
+.case-stages li p { color: var(--copy); }
+
+.case-links {
+  flex-wrap: wrap;
+  margin-top: 1.3rem;
+}
+
+.case-links a {
+  display: inline-flex;
+  gap: .4rem;
+  align-items: center;
+  font-weight: 650;
+  text-underline-offset: .2em;
+}
+
+.case-links a:hover { color: var(--accent-copy); }
+
+.project .project-links { flex-wrap: wrap; }
+
+@media (max-width: 34rem) {
+  .case-header { grid-template-columns: minmax(0, 1fr); }
+  .case-art { display: none; }
+  .case-stages li { grid-template-columns: 1.65rem minmax(0, 1fr); gap: .2rem .65rem; }
+  .case-stages li p { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-dialog[open] { animation: none; }
+  .project-cover .project-art, .project-open-label { transition: none; }
+  .project-cover:hover .project-art { transform: none; }
+}

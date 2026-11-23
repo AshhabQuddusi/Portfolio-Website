@@ -44,13 +44,17 @@ filters.addEventListener("click", (event) => {
 
 const sectionLinks = Array.from(menu.querySelectorAll('a[href^="#"]'));
 const sections = sectionLinks.map((link) => document.querySelector(link.hash));
+const readingProgress = document.querySelector("#reading-progress");
 function markCurrentSection() {
   let current = -1;
   const readingLine = Math.min(innerHeight * .35, 240);
   sections.forEach((section, index) => {
     if (section.getBoundingClientRect().top <= readingLine) current = index;
   });
-  if (window.scrollY + innerHeight >= document.documentElement.scrollHeight - 2) current = sections.length - 1;
+  const remainingHeight = root.scrollHeight - innerHeight;
+  const progress = remainingHeight > 0 ? Math.max(0, Math.min(scrollY / remainingHeight, 1)) : 0;
+  readingProgress.style.transform = `scaleX(${progress})`;
+  if (remainingHeight > 0 && remainingHeight - scrollY < 2) current = sections.length - 1;
   sectionLinks.forEach((link, index) => {
     if (index === current) link.setAttribute("aria-current", "location");
     else link.removeAttribute("aria-current");
@@ -64,4 +68,20 @@ function scheduleSectionUpdate() {
 }
 addEventListener("scroll", scheduleSectionUpdate, { passive: true });
 addEventListener("resize", scheduleSectionUpdate);
+new ResizeObserver(scheduleSectionUpdate).observe(document.querySelector("main"));
 markCurrentSection();
+
+const copyEmail = document.querySelector("#copy-email");
+const copyStatus = document.querySelector("#copy-status");
+if (navigator.clipboard?.writeText) {
+  document.querySelector("#copy-email-row").hidden = false;
+  copyEmail.addEventListener("click", async () => {
+    const address = document.querySelector("#contact .email").textContent.trim();
+    try {
+      await navigator.clipboard.writeText(address);
+      copyStatus.textContent = "Email copied.";
+    } catch {
+      copyStatus.textContent = "Copy the address from the email link.";
+    }
+  });
+}

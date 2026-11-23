@@ -78,6 +78,15 @@ ul { list-style: none; padding: 0; }
 .icon { flex: none; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .period { color: var(--accent); }
 .masthead { position: sticky; z-index: 5; top: 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.reading-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
 .masthead-inner, .brand, .primary-nav, .header-actions, .resume-button, .hero-actions, .button, .project-links, .project-links a, .section-heading, .availability, .eyebrow, .workstation figcaption, .workstation figcaption span, .social-links, .email { display: flex; align-items: center; }
 .masthead-inner { min-height: var(--nav-height); justify-content: space-between; gap: 1.3rem; }
 .brand { gap: .65rem; font-size: 1.2rem; font-weight: 800; line-height: 1; letter-spacing: -.055em; text-decoration: none; white-space: nowrap; }
@@ -184,7 +193,21 @@ h3, h4 { font-weight: 720; letter-spacing: -.045em; line-height: 1.15; }
 .contact-links { display: grid; gap: 1rem; }
 .email { gap: .55rem; font-size: clamp(1.05rem, 1.6vw, 1.45rem); font-weight: 650; text-underline-offset: .24em; }
 .social-links { gap: 1.3rem; font-size: .94rem; }
-.contact-section a:focus-visible { outline-color: var(--paper); }
+.copy-email-row { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .85rem; }
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .4rem .6rem;
+  min-height: 2.5rem;
+  border: 1px solid currentColor;
+  color: inherit;
+  background: none;
+  font-size: .92rem;
+}
+.copy-email:hover { background: var(--paper); color: var(--ink); }
+.copy-status { font-size: .9rem; }
+.contact-section :is(a, button):focus-visible { outline-color: var(--paper); }
 .footer { font-size: .77rem; color: var(--subtle); }
 .footer .container { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.3rem; }
 @media (max-width: 65rem) {
