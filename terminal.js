@@ -7,7 +7,7 @@
   const form = document.querySelector("#terminal-form");
   const input = document.querySelector("#terminal-command");
   const drawing = terminal.closest(".drawing");
-  const art = drawing.querySelector("img");
+  const art = drawing.querySelector("[data-terminal-preview]");
   const email = document.querySelector("#contact .email");
   const github = document.querySelector('.social-links a[href^="https://github.com/"]');
   const resume = document.querySelector(".resume-button");

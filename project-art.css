@@ -1,169 +1,19 @@
+.project-art-link {
+  display: grid;
+  align-self: stretch;
+  min-width: 0;
+  align-items: center;
+  border-radius: calc(var(--radius) * .72);
+  background: var(--chip);
+  padding: clamp(.45rem,1.2vw,1rem);
+}
+.project-art-link:hover .project-art { filter: brightness(1.045); }
 .project-art {
   width: 100%;
-  aspect-ratio: 1.75;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  container-type: inline-size;
-  user-select: none;
-  pointer-events: none;
-  color: #242b26;
-  font: normal 400 1rem/1 Arial, Helvetica, sans-serif;
-  text-align: left;
-  letter-spacing: normal;
-  text-transform: none;
+  height: auto;
+  border-radius: calc(var(--radius) * .48);
 }
-.project-art *, .project-art *::before, .project-art *::after { box-sizing: border-box; }
-.project-art .art-type {
-  font: 600 2cqw/1.2 "IBM Plex Mono", Consolas, "Courier New", monospace;
-  letter-spacing: .09em;
-  text-transform: uppercase;
+@media (max-width: 47rem) {
+  .project-art-link { padding: .35rem; }
+  .project-art { max-height: 11.8rem; object-fit: contain; }
 }
-
-/* An application folder and two offset sheets, drawn with their own printed rules. */
-.art-jobnest { background: #bed2c0; }
-.art-jobnest .folder {
-  position: absolute; width: 62%; height: 85%; left: 28%; top: 24%;
-  transform: rotate(12deg); background: #548b76; border: .45cqw solid #253b30;
-}
-.art-jobnest .folder::before {
-  content: ""; position: absolute; width: 38%; height: 5cqw; left: -.45cqw; top: -5cqw;
-  border: .45cqw solid #253b30; border-bottom: 0; background: inherit;
-  clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);
-}
-.art-jobnest .sheet {
-  position: absolute; width: 56%; height: 95%; left: 22%; top: 12%;
-  padding: 3.4cqw; transform: rotate(-8deg); background: #f7f4de;
-  border: .45cqw solid #253b30; box-shadow: 1cqw 1cqw 0 #293a2d;
-}
-.art-jobnest .sheet::before {
-  content: ""; position: absolute; right: 4cqw; top: -2.1cqw; width: 2.8cqw; height: 7cqw;
-  border: .45cqw solid #253b30; border-radius: 2cqw;
-}
-.art-jobnest .job-name {
-  display: block; font: 700 9.5cqw/.94 Georgia, "Times New Roman", serif;
-  letter-spacing: -.08em; padding: 1.8cqw 0 2.2cqw; border-bottom: .65cqw double #253b30;
-}
-.art-jobnest .dossier { display: grid; grid-template-columns: 12cqw 1fr; align-items: center; gap: 3cqw; margin: 2.6cqw 0; }
-.art-jobnest .portrait { position: relative; overflow: hidden; height: 13cqw; background: #b2c8b0; border: .35cqw solid #253b30; }
-.art-jobnest .portrait::before, .art-jobnest .portrait::after { content: ""; position: absolute; background: #384f40; border-radius: 50%; }
-.art-jobnest .portrait::before { width: 5cqw; height: 6cqw; top: 15%; left: 29%; }
-.art-jobnest .portrait::after { width: 12cqw; height: 9cqw; top: 60%; left: 0; }
-.art-jobnest .typeset { display: grid; gap: 1.55cqw; }
-.art-jobnest .typeset i { height: .52cqw; background: #62705b; }
-.art-jobnest .typeset i:nth-child(2) { width: 80%; }
-.art-jobnest .typeset i:last-child { width: 62%; }
-.art-jobnest .seal {
-  position: absolute; right: -5.5cqw; bottom: 3cqw; width: 12.5cqw; aspect-ratio: 1;
-  background: #d95831; border: .4cqw solid #803519; outline: .35cqw solid #d95831;
-  outline-offset: .7cqw; border-radius: 50%; transform: rotate(-8deg);
-  display: grid; place-items: center; color: #f8efcd;
-}
-.art-jobnest .seal::before { content: ""; width: 5.6cqw; height: 3.1cqw; display: block; border: solid currentColor; border-width: 0 0 1cqw 1cqw; transform: translateY(-.55cqw) rotate(-45deg); }
-
-/* Candles plotted over a ruled chart. The illustration contains no live market data. */
-.art-binance { background: #1b302a; color: #e0e9d7; }
-.art-binance .ticker-head { position: absolute; inset: 8% 7% auto; display: flex; justify-content: space-between; align-items: baseline; }
-.art-binance .ticker-head b { font: 600 4.7cqw/1 "IBM Plex Mono", Consolas, monospace; letter-spacing: -.075em; }
-.art-binance .ticker-head span { color: #b6cebb; font-size: 1.8cqw; }
-.art-binance .plot { position: absolute; inset: 26% 11% 14% 7%; border: solid #739788; border-width: 0 .25cqw .25cqw 0; display: flex; align-items: stretch; }
-.art-binance .plot::before {
-  content: ""; position: absolute; inset: 0;
-  background-image: linear-gradient(to right, #3d5549 .2cqw, transparent .2cqw), linear-gradient(to bottom, #3d5549 .2cqw, transparent .2cqw);
-  background-size: 12.5% 25%;
-}
-.art-binance .candle { position: relative; flex: 1; color: #a7d7a8; }
-.art-binance .candle.down { color: #f07c51; }
-.art-binance .candle::before, .art-binance .candle::after {
-  content: ""; display: block; position: absolute; left: 50%; background: currentColor; transform: translateX(-50%);
-}
-.art-binance .candle::before { bottom: calc(var(--b) - 6%); width: .32cqw; height: calc(var(--h) + 13%); }
-.art-binance .candle::after { bottom: var(--b); width: 62%; height: var(--h); }
-.art-binance .axis { position: absolute; left: 90%; top: 25.6%; height: 61%; display: grid; align-content: space-between; }
-.art-binance .axis i { display: block; height: .25cqw; width: 1.4cqw; background: #9db7a5; }
-.art-binance .axis i:nth-child(even) { width: .8cqw; }
-.art-binance .chart-foot { position: absolute; left: 7%; bottom: 4.5%; right: 11%; display: flex; justify-content: space-between; color: #b6cebb; font-size: 1.7cqw; }
-
-/* The library cover pairs a lending slip with a shelf of clothbound spines. */
-.art-citadel { background: #eacf82; color: #2d342a; }
-.art-citadel .library-slip {
-  position: absolute; width: 42%; height: 86%; top: 9%; left: 54%; transform: rotate(12deg);
-  background: #f9eed2; border: .35cqw solid #484735; padding: 3cqw 2.6cqw;
-}
-.art-citadel .library-slip b { display: block; font: italic 700 4.7cqw/1 Georgia, serif; margin-bottom: 1.2cqw; }
-.art-citadel .library-slip span { font-size: 1.5cqw; }
-.art-citadel .library-slip i { display: block; border-top: .25cqw solid #a29a78; height: 4.7cqw; }
-.art-citadel .library-slip i:first-of-type { margin-top: 2cqw; border-top: .65cqw double #746e51; }
-.art-citadel .book-stack { position: absolute; left: 11%; right: 8%; bottom: 9%; height: 79%; display: flex; align-items: flex-end; }
-.art-citadel .book-stack::after { content: ""; position: absolute; height: .9cqw; left: -5cqw; right: -3cqw; bottom: -.8cqw; background: #393c2e; }
-.art-citadel .book {
-  display: flex; position: relative; align-items: center; justify-content: center;
-  border: .4cqw solid #323c31; border-radius: .8cqw .8cqw 0 0;
-  height: 97%; width: 17%; background: #49726b; color: #f4edc9;
-}
-.art-citadel .book::before, .art-citadel .book::after {
-  content: ""; position: absolute; height: 1.3cqw; border-block: .2cqw solid currentColor; left: 8%; right: 8%;
-}
-.art-citadel .book::before { top: 5%; }
-.art-citadel .book::after { bottom: 5%; }
-.art-citadel .book b { writing-mode: vertical-rl; transform: rotate(180deg); font: 700 4.5cqw/1 Georgia, serif; letter-spacing: -.05em; }
-.art-citadel .book:nth-child(2) { height: 83%; width: 15%; background: #cc6040; color: #292e26; }
-.art-citadel .book:nth-child(3) { height: 93%; width: 18%; background: #f0d894; color: #343c30; }
-.art-citadel .book:nth-child(4) { transform: rotate(-16deg); transform-origin: left bottom; height: 76%; width: 14%; margin-left: 11.2%; background: #4b6650; }
-.art-citadel .book:nth-child(5) { height: 56%; width: 12%; background: #b18b61; color: #2f352a; }
-.art-citadel .book:nth-child(n+4) b { font-size: 3.2cqw; }
-
-/* A printed programming workbook lies open, with its lesson on the facing page. */
-.art-learntech { background: #9fbacb; color: #273a49; }
-.art-learntech .workbook {
-  position: absolute; inset: 16% 12% 7%; display: grid; grid-template-columns: 1fr 1fr;
-  background: #f6eed2; border: .44cqw solid #283f4b; border-radius: .5cqw 1cqw 1cqw .5cqw;
-  transform: rotate(-8deg) skewX(-3deg); box-shadow: .6cqw .6cqw 0 #d6d1b5, .95cqw .95cqw 0 #283f4b, 1.8cqw 1.8cqw 0 #526c77;
-}
-.art-learntech .lesson-cover, .art-learntech .lesson-page { position: relative; padding: 3.4cqw 2.8cqw; }
-.art-learntech .lesson-cover { border-right: .35cqw solid #48565b; background: #ed9d67; }
-.art-learntech .lesson-cover b { display: block; font: 800 8.6cqw/.84 Arial, sans-serif; letter-spacing: -.09em; margin-top: 3.1cqw; }
-.art-learntech .lesson-cover span, .art-learntech .lesson-page span { font-size: 1.55cqw; }
-.art-learntech .lesson-cover i { position: absolute; bottom: 3cqw; left: 2.8cqw; font: 700 7.3cqw/1 Consolas, monospace; letter-spacing: -.14em; font-style: normal; }
-.art-learntech .lesson-page b { display: block; font: 700 3.5cqw/1.1 Georgia, serif; margin: 2cqw 0 1.3cqw; }
-.art-learntech .lesson-page code { display: block; font: 400 2.1cqw/1.6 Consolas, monospace; white-space: pre; color: #994526; }
-.art-learntech .lesson-page i { display: block; width: 90%; border-top: .25cqw solid #989982; margin-top: 2.1cqw; }
-.art-learntech .lesson-page i:last-child { width: 64%; }
-
-/* A typesetter's registration proof for Ashhab's personal site. */
-.art-portfolio { background: #ce6b4c; color: #242b26; }
-.art-portfolio .proof {
-  position: absolute; inset: 15% 14%; border: .45cqw solid #31362a; background: #f5eedb;
-  transform: rotate(-7deg); box-shadow: 1.5cqw 1.5cqw 0 #6e422f;
-}
-.art-portfolio .browser-bar { height: 5.3cqw; border-bottom: .35cqw solid #344033; display: flex; align-items: center; gap: .65cqw; padding-inline: 1.6cqw; }
-.art-portfolio .browser-bar i { width: .95cqw; height: .95cqw; border: .23cqw solid #424536; border-radius: 50%; }
-.art-portfolio .browser-bar .art-type { margin-left: 1.3cqw; font-size: 1.4cqw; text-transform: none; }
-.art-portfolio .proof-name { display: block; margin: 3.4cqw 3.5cqw 1.5cqw; font: 500 10.6cqw/.8 Georgia, "Times New Roman", serif; letter-spacing: -.105em; }
-.art-portfolio .proof-name em { font-weight: 500; }
-.art-portfolio .proof-role { display: block; border-top: .3cqw solid #59604f; margin-inline: 3.7cqw; padding-top: 1.2cqw; font-size: 1.5cqw; }
-.art-portfolio .press-mark { position: absolute; top: 28%; right: 15%; width: 13%; aspect-ratio: 1; border: .36cqw solid #a95035; border-radius: 50%; }
-.art-portfolio .press-mark::before, .art-portfolio .press-mark::after { content: ""; position: absolute; background: #a95035; }
-.art-portfolio .press-mark::before { height: .32cqw; inset: 50% -20% auto; }
-.art-portfolio .press-mark::after { width: .32cqw; inset: -20% auto -20% 50%; }
-
-/* A cited line in the appeal points back to its highlighted source record. */
-.art-counterfile { background: #c9c0d8; color: #322b3a; }
-.art-counterfile .appeal, .art-counterfile .record {
-  position: absolute; border: .4cqw solid #393240; padding: 3cqw;
-  box-shadow: .85cqw .85cqw 0 #867a94;
-}
-.art-counterfile .appeal { top: 10%; left: 9%; width: 47%; height: 90%; background: #fcf3dd; transform: rotate(-5deg); }
-.art-counterfile .record { top: 22%; left: 55%; width: 37%; height: 66%; background: #52445f; color: #f4ead9; transform: rotate(5deg); }
-.art-counterfile .appeal .art-type, .art-counterfile .record .art-type { display: block; font-size: 1.55cqw; margin-bottom: 2cqw; }
-.art-counterfile .appeal b { display: block; font: 700 8.2cqw/.85 Georgia, serif; letter-spacing: -.085em; }
-.art-counterfile .record b { display: block; font: italic 700 3.7cqw/1 Georgia, serif; }
-.art-counterfile .rules { display: grid; gap: 1.4cqw; margin-top: 2.9cqw; }
-.art-counterfile .rules i { height: .4cqw; background: currentColor; opacity: .65; }
-.art-counterfile .rules i:nth-child(2) { width: 79%; }
-.art-counterfile .rules i:last-child { width: 61%; }
-.art-counterfile .reference { display: flex; align-items: center; gap: 1.1cqw; margin-top: 2cqw; }
-.art-counterfile .reference::before { content: ""; width: 54%; height: 1.5cqw; background: #db9c63; border-bottom: .3cqw solid #88582c; }
-.art-counterfile .reference em { display: grid; place-items: center; padding: .4cqw .8cqw; border: .25cqw solid currentColor; font: 700 1.75cqw/1.2 Consolas, monospace; }
-.art-counterfile .record .reference { color: #f4c698; flex-direction: row-reverse; justify-content: flex-end; }
-.art-counterfile .record .reference::before { background: #d49e6a; border-color: #edc197; }

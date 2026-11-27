@@ -1,46 +1,17 @@
-.workstation {
-  min-width: 0;
-}
-
 .terminal-launch {
   position: absolute;
-  inset: .625rem auto auto .625rem;
-  display: inline-flex;
-  align-items: center;
-  gap: .42rem;
-  min-height: 2.55rem;
-  padding: .35rem .55rem;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 2px 2px 0 var(--line);
-  font: 500 .75rem/1.25 var(--mono);
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  inset: .62rem .65rem auto auto;
+  min-height: 2rem;
+  padding: .27rem .62rem;
+  border: 1px solid var(--navy-line);
+  border-radius: 99rem;
+  background: var(--navy-chip);
+  color: var(--snow);
+  font-size: .76rem;
+  font-weight: 620;
 }
 
-.terminal-launch span {
-  color: var(--accent-copy);
-}
-
-.terminal-launch:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--accent);
-}
-
-@media (min-width: 52.01rem) {
-  .terminal-launch {
-    min-height: 2.75rem;
-    padding-inline: .75rem;
-    border-color: var(--accent-fill);
-    background: var(--accent-fill);
-    color: var(--accent-fill-ink);
-    font-size: .83rem;
-  }
-
-  .terminal-launch span {
-    color: inherit;
-  }
-}
+.terminal-launch:hover { border-color: var(--accent); }
 
 .drawing.terminal-active {
   width: 100%;
@@ -48,12 +19,12 @@
 }
 
 .portfolio-terminal {
-  --screen: #151c1a;
-  --screen-ink: #f1f3eb;
-  --screen-copy: #c2cdc3;
-  --screen-line: #536159;
-  --screen-accent: #b5dfc4;
-  --screen-accent: color-mix(in srgb, var(--accent) 42%, #e6f5ec);
+  --screen: var(--navy-card);
+  --screen-ink: var(--snow);
+  --screen-copy: var(--ice);
+  --screen-line: var(--navy-line);
+  --screen-accent: var(--blue-light);
+  border-radius: inherit;
   align-self: stretch;
   justify-self: stretch;
   display: grid;
@@ -200,11 +171,5 @@
   @keyframes terminal-open {
     from { opacity: .5; transform: scaleY(.92); }
     to { opacity: 1; transform: scaleY(1); }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .terminal-launch:hover {
-    transform: none;
   }
 }
