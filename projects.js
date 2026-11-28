@@ -188,8 +188,6 @@
     const tags = dialog.querySelector(".case-tags");
     const details = dialog.querySelector(".case-details");
     const links = dialog.querySelector(".case-links");
-    let opener;
-
     for (const card of cards) {
       const cover = card.querySelector(".project-art-link");
       const button = card.querySelector(".project-open");
@@ -197,7 +195,6 @@
       const study = card.querySelector(".case-study");
 
       function openStudy(trigger) {
-        opener = trigger;
         title.textContent = projectName;
         kind.textContent = study.dataset.projectKind;
         intro.textContent = card.querySelector(".project-body > p").textContent;
@@ -205,6 +202,7 @@
         tags.innerHTML = card.querySelector(".tags").innerHTML;
         details.replaceChildren(study.content.cloneNode(true));
         links.replaceChildren(...Array.from(card.querySelectorAll(".project-links a"), link => link.cloneNode(true)));
+        trigger.focus({ preventScroll: true });
         dialog.showModal();
         dialog.scrollTop = 0;
       }
@@ -224,7 +222,6 @@
     dialog.addEventListener("click", event => {
       if (event.target === dialog) dialog.close();
     });
-    dialog.addEventListener("close", () => opener?.focus({ preventScroll: true }));
   }
 
   layout();
