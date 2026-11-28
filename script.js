@@ -1,20 +1,24 @@
 const filters = document.querySelector("#skill-filters");
 const skillItems = document.querySelectorAll("#skill-list li");
-filters.hidden = false;
 
-filters.addEventListener("click", (event) => {
-  const selected = event.target.closest("button[data-filter]");
-  if (!selected) return;
+function selectSkillGroup(selected) {
   const group = selected.dataset.filter;
   filters.querySelectorAll("button").forEach((button) => {
     button.setAttribute("aria-pressed", String(button === selected));
   });
   let count = 0;
   skillItems.forEach((skill) => {
-    skill.hidden = group !== "all" && skill.dataset.group !== group;
+    skill.hidden = skill.dataset.group !== group;
     if (!skill.hidden) count++;
   });
   document.querySelector("#skill-status").textContent = count + " skills shown.";
+}
+
+selectSkillGroup(filters.querySelector("button[aria-pressed='true']"));
+filters.hidden = false;
+filters.addEventListener("click", (event) => {
+  const selected = event.target.closest("button[data-filter]");
+  if (selected) selectSkillGroup(selected);
 });
 
 const copyEmail = document.querySelector("#copy-email");

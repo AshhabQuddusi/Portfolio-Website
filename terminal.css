@@ -1,7 +1,7 @@
 .terminal-launch {
   position: absolute;
   inset: .62rem .65rem auto auto;
-  min-height: 2rem;
+  min-height: 2.75rem;
   padding: .27rem .62rem;
   border: 1px solid var(--navy-line);
   border-radius: 99rem;

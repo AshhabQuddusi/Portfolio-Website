@@ -9,18 +9,44 @@
   const count = document.querySelector("#project-count");
   const position = document.querySelector("#project-position");
   const hint = document.querySelector("#project-hint");
+  const experience = document.querySelector("#experience");
   const allowMotion = matchMedia("(prefers-reduced-motion: no-preference)");
   let visible = cards;
   let distance = 0;
   let pending = 0;
   let selected = -1;
-  let atEnd = false;
+  let previousY = scrollY;
+  let returning = false;
+
+  function setTrackHeight() {
+    work.style.setProperty("--project-height", `${scene.offsetHeight + (returning ? 0 : distance)}px`);
+  }
+
+  function setReturnPass(active) {
+    returning = active;
+    setTrackHeight();
+  }
+
+  function followScroll() {
+    pending = 0;
+    const y = scrollY;
+    const start = y + work.getBoundingClientRect().top;
+    const end = start + distance;
+    if (!returning && y < previousY && previousY >= end - 1 && y < end && y >= start) {
+      // Removing the runway preserves the viewport at the last card during upward travel.
+      setReturnPass(true);
+      window.scrollTo({ top: y - distance, behavior: "instant" });
+    } else if (returning && y > previousY && previousY <= start && y >= start) {
+      setReturnPass(false);
+    }
+    paint();
+  }
 
   // The page keeps its native scroll. Only this sticky section translates its track.
   function paint() {
-    pending = 0;
+    previousY = scrollY;
     if (!distance) return;
-    const offset = Math.min(distance, Math.max(0, -work.getBoundingClientRect().top));
+    const offset = returning ? distance : Math.min(distance, Math.max(0, -work.getBoundingClientRect().top));
     track.style.setProperty("--project-offset", `-${offset}px`);
     const center = offset + viewport.clientWidth / 2;
     let nearest = 0;
@@ -32,11 +58,8 @@
       position.textContent = `${nearest + 1} / ${visible.length}`;
       selected = nearest;
     }
-    const end = distance - offset < 1;
-    if (end !== atEnd) {
-      hint.textContent = end ? "Scroll down for the next section" : "Scroll down to browse projects";
-      atEnd = end;
-    }
+    const instruction = returning ? "" : distance - offset < 1 ? "Scroll down for the next section" : "Scroll down to browse projects";
+    if (hint.textContent !== instruction) hint.textContent = instruction;
   }
 
   function layout() {
@@ -45,8 +68,9 @@
     distance = canPin ? Math.max(0, track.offsetWidth - viewport.clientWidth) : 0;
     if (scene.offsetHeight > innerHeight + 1) distance = 0;
     if (distance) {
-      work.style.setProperty("--project-height", `${scene.offsetHeight + distance}px`);
+      setTrackHeight();
     } else {
+      returning = false;
       work.classList.remove("has-project-motion");
       work.style.removeProperty("--project-height");
       track.style.removeProperty("--project-offset");
@@ -74,6 +98,7 @@
       card.scrollIntoView({ behavior: "instant", block: "start" });
       return;
     }
+    if (returning) setReturnPass(false);
     const centerOffset = card.offsetLeft + (card.offsetWidth - viewport.clientWidth) / 2;
     const offset = Math.max(0, Math.min(distance, centerOffset));
     window.scrollTo({ top: scrollY + work.getBoundingClientRect().top + offset, behavior: "instant" });
@@ -91,6 +116,7 @@
   for (const button of buttons) {
     button.addEventListener("click", () => {
       if (button.getAttribute("aria-pressed") === "true") return;
+      returning = false;
       filterProjects(button);
       if (linkedProject()?.hidden) history.replaceState(history.state, "", "#projects");
       work.scrollIntoView({ behavior: "instant", block: "start" });
@@ -99,7 +125,7 @@
   }
 
   window.addEventListener("scroll", () => {
-    if (distance && !pending) pending = requestAnimationFrame(paint);
+    if (distance && !pending) pending = requestAnimationFrame(followScroll);
   }, { passive: true });
   window.addEventListener("resize", layout);
   allowMotion.addEventListener("change", layout);
@@ -107,7 +133,14 @@
   window.addEventListener("hashchange", followHash);
   document.addEventListener("click", event => {
     const anchor = event.target.closest('a[href^="#"]');
-    if (anchor && anchor.hash === location.hash && linkedProject()) {
+    if (!anchor || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (anchor.hash === "#experience") {
+      event.preventDefault();
+      if (location.hash !== anchor.hash) history.pushState(history.state, "", anchor.hash);
+      experience.focus({ preventScroll: true });
+      experience.scrollIntoView({ behavior: "instant", block: "start" });
+      paint();
+    } else if (anchor.hash === location.hash && linkedProject()) {
       event.preventDefault();
       followHash();
     }
