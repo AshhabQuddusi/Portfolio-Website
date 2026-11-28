@@ -13,6 +13,11 @@
   const allowMotion = matchMedia("(prefers-reduced-motion: no-preference)");
   let visible = cards;
   let distance = 0;
+  let frames = [];
+  let center = 0;
+  let slide = 0;
+  let peek = 0;
+  let front = -1;
   let pending = 0;
   let selected = -1;
   let previousY = scrollY;
@@ -42,18 +47,31 @@
     paint();
   }
 
-  // The page keeps its native scroll. Only this sticky section translates its track.
+  function place(frame, x, y, scale) {
+    frame.card.style.setProperty("--card-x", `${center - frame.left + x}px`);
+    frame.card.style.setProperty("--card-y", `${y}px`);
+    frame.card.style.setProperty("--card-scale", scale);
+  }
+
   function paint() {
     previousY = scrollY;
     if (!distance) return;
     const offset = returning ? distance : Math.min(distance, Math.max(0, -work.getBoundingClientRect().top));
-    track.style.setProperty("--project-offset", `-${offset}px`);
-    const center = offset + viewport.clientWidth / 2;
-    let nearest = 0;
-    for (let i = 1; i < visible.length; i++) {
-      if (center < visible[i].offsetLeft) break;
-      nearest = i;
+    const index = frames.findLastIndex(frame => frame.offset <= offset + .5);
+    const current = frames[index];
+    const next = frames[index + 1];
+    const progress = next ? Math.max(0, (offset - current.offset) / (next.offset - current.offset)) : 0;
+    const eased = progress * progress * (3 - 2 * progress);
+    place(current, -eased * slide, 0, 1 - eased * .03);
+    if (next) place(next, (1 - eased) * peek, (1 - eased) * 20, .925 + eased * .075);
+    if (index !== front) {
+      for (const card of cards) {
+        card.classList.toggle("is-project-front", card === current.card);
+        card.classList.toggle("is-project-next", card === next?.card);
+      }
+      front = index;
     }
+    const nearest = index + (eased > .55 ? 1 : 0);
     if (nearest !== selected) {
       position.textContent = `${nearest + 1} / ${visible.length}`;
       selected = nearest;
@@ -68,12 +86,21 @@
     distance = canPin ? Math.max(0, track.offsetWidth - viewport.clientWidth) : 0;
     if (scene.offsetHeight > innerHeight + 1) distance = 0;
     if (distance) {
+      const width = visible[0].offsetWidth;
+      center = (viewport.clientWidth - width) / 2;
+      slide = center + width + 24;
+      peek = width * .0375 + 12;
+      frames = visible.map((card, i) => {
+        const left = card.offsetLeft;
+        const offset = i === 0 ? 0 : i === visible.length - 1 ? distance : Math.round(left - center);
+        return { card, left, offset };
+      });
+      front = -1;
       setTrackHeight();
     } else {
       returning = false;
       work.classList.remove("has-project-motion");
       work.style.removeProperty("--project-height");
-      track.style.removeProperty("--project-offset");
     }
     position.hidden = hint.hidden = !distance;
     selected = -1;
@@ -99,8 +126,7 @@
       return;
     }
     if (returning) setReturnPass(false);
-    const centerOffset = card.offsetLeft + (card.offsetWidth - viewport.clientWidth) / 2;
-    const offset = Math.max(0, Math.min(distance, centerOffset));
+    const { offset } = frames.find(frame => frame.card === card);
     window.scrollTo({ top: scrollY + work.getBoundingClientRect().top + offset, behavior: "instant" });
     paint();
   }
@@ -148,9 +174,9 @@
   track.addEventListener("focusin", event => {
     const card = event.target.closest(".project");
     if (!card || !distance || !event.target.matches(":focus-visible")) return;
-    const { left, right } = card.getBoundingClientRect();
+    const { left, right } = event.target.getBoundingClientRect();
     const bounds = viewport.getBoundingClientRect();
-    if (left < bounds.left || right > bounds.right) revealProject(card);
+    if (card !== frames[front].card || left < bounds.left || right > bounds.right) revealProject(card);
   });
 
   const dialog = document.querySelector("#project-dialog");
