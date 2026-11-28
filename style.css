@@ -92,7 +92,7 @@ ul { list-style: none; padding: 0; }
 .ribbons::before {
   background: url("assets/ribbons.webp") center / max(60rem, 100%) 100% no-repeat;
 }
-.hero .ribbons { mix-blend-mode: screen; opacity: .85; }
+.hero .ribbons { z-index: -3; mix-blend-mode: screen; opacity: .85; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .motion-section { view-timeline: --section-view block; }
@@ -156,7 +156,10 @@ h3, h4 { font-weight: 720; }
   width: min(94%, 144svh, 98rem);
   height: auto;
   transform: translateY(-50%);
-  mask-image: linear-gradient(transparent, var(--navy) 5%, var(--navy) 95%, transparent);
+  mask-image:
+    linear-gradient(transparent, #000 11% 89%, transparent),
+    radial-gradient(ellipse 43% 72% at 73% 50%, #000 74%, transparent);
+  mask-composite: intersect;
 }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,var(--navy),transparent 55%); opacity: .45; pointer-events: none; }
 .hero-content { position: relative; padding-block: clamp(5rem,12vh,10rem); }
@@ -331,7 +334,12 @@ h3, h4 { font-weight: 720; }
   .credential .date { grid-column: 2; }
 }
 @media (max-width: 34rem) and (max-aspect-ratio: 3/4) {
-  .hero-image { object-fit: cover; }
+  .hero-image {
+    object-fit: cover;
+    mask-image:
+      linear-gradient(transparent, #000 16% 88%, transparent),
+      radial-gradient(ellipse 75% 66% at 54% 53%, #000 68%, transparent);
+  }
 }
 @media (max-width: 32rem) {
   .skill-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
